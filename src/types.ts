@@ -1,7 +1,10 @@
-import { App } from 'vue';
+import { App, defineComponent } from 'vue';
 
-export type SFCWithInstall<T> = T & {install(app: App): void;}
-
-export interface Install {
-    install(app: App): void;
+export type vueComponentType = ReturnType<typeof defineComponent>;
+export function SFCWithInstall(component: vueComponentType): {install(app: App): void}  {
+    return {
+        install(app: App) {
+            app.component(component.name, component);
+        }
+    }
 }

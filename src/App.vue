@@ -2,11 +2,12 @@
  <div>
   <div class="red">sdfsdf</div>
   <div class="red">{{name}}</div>
+  <add-component></add-component>
  </div>
 </template>
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import AddComponent from '@components/Add/index';
+    // import AddComponent from '@components/Add/index';
 
 
     export default defineComponent({

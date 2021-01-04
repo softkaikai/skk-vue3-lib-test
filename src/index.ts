@@ -1,5 +1,7 @@
 import { createApp } from 'vue';
 import AppComponent from './App.vue';
+import AddComponent from './components/Add/index';
 
-const index = createApp(AppComponent);
-const vm = index.mount('#app')
+const app = createApp(AppComponent);
+app.use(AddComponent);
+const vm = app.mount('#app')
