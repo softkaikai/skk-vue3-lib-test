@@ -6,6 +6,8 @@
 </template>
 <script lang="ts">
     import { defineComponent } from 'vue';
+    import AddComponent from '@components/Add/index';
+
 
     export default defineComponent({
         name: 'AppComponent',
