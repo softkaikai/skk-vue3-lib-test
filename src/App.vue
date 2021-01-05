@@ -7,11 +7,13 @@
 </template>
 <script lang="ts">
     import { defineComponent } from 'vue';
-    // import AddComponent from '@components/Add/index';
+    import AddComponent from './components/Add/Add.vue';
+    import HelloWorld from './components/HelloWorld/HelloWorld.vue';
 
 
     export default defineComponent({
         name: 'AppComponent',
+        components: {HelloWorld, AddComponent},
         data() {
             return {
                 name: 'kaikai'
