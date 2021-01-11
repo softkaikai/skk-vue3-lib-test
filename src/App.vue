@@ -7,7 +7,8 @@
 </template>
 <script lang="ts">
     import { defineComponent } from 'vue';
-    import AddComponent from './components/Add/Add.vue';
+    // import AddComponent from './components/Add/Add.vue';
+    import AddComponent from '../lib/es/Add'
     import HelloWorld from './components/HelloWorld/HelloWorld.vue';
 
 

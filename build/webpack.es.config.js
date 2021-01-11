@@ -1,5 +1,6 @@
 const path = require('path');
-const VueLoaderPlugin = require('vue-loader/dist/plugin').default
+const VueLoaderPlugin = require('vue-loader/dist/plugin').default;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 
@@ -7,11 +8,18 @@ module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, '../src/components/Add/index.ts'),
     output: {
-        path: path.resolve(__dirname, '../dist'),
-        library: 'skk',
+        path: path.resolve(__dirname, '../lib/es'),
+        library: 'Add',
         libraryTarget: 'umd',
-        filename: 'skk.js',
+        filename: 'Add.js',
         auxiliaryComment: 'Test Comment'
+    },
+    externals: {
+        vue: {
+            commonjs: 'vue',
+            commonjs2: 'vue',
+            root: 'Vue'
+        }
     },
     module: {
         rules: [
@@ -45,6 +53,7 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.jsx', '.js', '.vue']
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new CleanWebpackPlugin()
     ]
 }
