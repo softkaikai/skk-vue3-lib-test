@@ -28,6 +28,11 @@ module.exports = {
                 options: { appendTsSuffixTo: [/\.vue$/] }
             },
             {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules | lib/
+            },
+            {
                 test: /\.css$/,
                 use: [
                     {
