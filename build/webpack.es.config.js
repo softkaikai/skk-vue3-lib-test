@@ -9,9 +9,9 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/components/Add/index.ts'),
     output: {
         path: path.resolve(__dirname, '../lib/es'),
-        library: 'Add',
+        library: 'AddComponent',
         libraryTarget: 'umd',
-        filename: 'Add.js',
+        filename: 'AddComponent.js',
         auxiliaryComment: 'Test Comment'
     },
     externals: {

@@ -3,18 +3,19 @@
   <div class="red">sdfsdf</div>
   <div class="red">{{name}}</div>
   <add-component></add-component>
+  <hello-world></hello-world>
  </div>
 </template>
 <script lang="ts">
     import { defineComponent } from 'vue';
     // import AddComponent from './components/Add/Add.vue';
-    import AddComponent from '../lib/es/Add'
+    // import AddComponent from '../lib/es/Add'
     import HelloWorld from './components/HelloWorld/HelloWorld.vue';
 
 
     export default defineComponent({
         name: 'AppComponent',
-        components: {HelloWorld, AddComponent},
+        components: {HelloWorld},
         data() {
             return {
                 name: 'kaikai'
