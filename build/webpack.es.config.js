@@ -3,7 +3,6 @@ const VueLoaderPlugin = require('vue-loader/dist/plugin').default;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
-
 module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, '../src/components/Add/index.ts'),
@@ -16,10 +15,10 @@ module.exports = {
     },
     externals: {
         vue: {
-            commonjs: 'vue',
+            root: 'Vue',
             commonjs2: 'vue',
             amd: 'vue',
-            root: 'Vue'
+            commonjs: 'vue'
         }
     },
     module: {
@@ -34,6 +33,11 @@ module.exports = {
                 loader: "ts-loader",
                 options: { appendTsSuffixTo: [/\.vue$/] }
             },
+            // {
+            //     test: /\.js$/,
+            //     loader: 'babel-loader',
+            //     exclude: /node_modules/
+            // },
             {
                 test: /\.css$/,
                 use: [

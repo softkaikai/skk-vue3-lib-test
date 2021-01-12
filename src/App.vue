@@ -3,6 +3,7 @@
   <div class="red">sdfsdf</div>
   <div class="red">{{name}}</div>
   <add-component></add-component>
+  <van-button type="primary" block>块级元素</van-button>
   <hello-world></hello-world>
  </div>
 </template>

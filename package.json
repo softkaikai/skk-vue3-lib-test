@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/softkaikai/skk-vue3-lib-test#readme",
   "dependencies": {
+    "vant": "^2.12.3",
     "vue": "^3.0.5"
   },
   "devDependencies": {
