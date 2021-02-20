@@ -28,11 +28,11 @@ module.exports = {
                 exclude: /node_modules | lib/,
                 options: { appendTsSuffixTo: [/\.vue$/] }
             },
-            // {
-            //     test: /\.js$/,
-            //     loader: 'babel-loader',
-            //     exclude: /node_modules/
-            // },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
             {
                 test: /\.css$/,
                 use: [
@@ -46,7 +46,23 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 20000,
+                    name: 'fonts/[name]-[hash].[ext]'
+                }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 20000,
+                    name: 'images/[name]-[hash].[ext]'
+                }
+            },
         ]
     },
     resolve: {

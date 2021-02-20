@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="red" @click="jian">---</div>
-        <div>{{num}}</div>
+        <div>{{num}} + {{name}}</div>
         <div class="red" @click="add">+++</div>
 <!--        <address-component></address-component>-->
     </div>
@@ -12,6 +12,12 @@
 
     export default defineComponent({
         name: 'AddComponent',
+        props: {
+            name: {
+                type: String,
+                required: true
+            }
+        },
         data() {
             return {
                 num: 1

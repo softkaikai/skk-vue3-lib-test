@@ -2,6 +2,12 @@ import { defineComponent, openBlock, createBlock, createVNode, toDisplayString, 
 
 var script = defineComponent({
   name: 'AddComponent',
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  },
   data: function data() {
     return {
       num: 1
@@ -26,7 +32,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     onClick: _cache[1] || (_cache[1] = function () {
       return _ctx.jian && _ctx.jian.apply(_ctx, arguments);
     })
-  }, "---"), createVNode("div", null, toDisplayString(_ctx.num), 1
+  }, "---"), createVNode("div", null, toDisplayString(_ctx.num) + " + " + toDisplayString(_ctx.name), 1
   /* TEXT */
   ), createVNode("div", {
     "class": "red",
