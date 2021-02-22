@@ -1,64 +1,58 @@
-import { defineComponent, openBlock, createBlock, createVNode, toDisplayString, createCommentVNode, withScopeId } from 'vue';
+import { defineComponent, pushScopeId, popScopeId, openBlock, createBlock, createVNode, toDisplayString, withScopeId } from 'vue';
 
 var script = defineComponent({
-  name: 'AddComponent',
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      num: 1
-    };
-  },
-  mounted: function mounted() {},
-  methods: {
-    add: function add() {
-      this.num++;
+    name: 'AddComponent',
+    props: {
+        name: {
+            type: String,
+            required: true
+        }
     },
-    jian: function jian() {
-      this.num--;
+    data() {
+        return {
+            num: 1
+        };
+    },
+    mounted() {
+    },
+    methods: {
+        add() {
+            this.num++;
+        },
+        jian() {
+            this.num--;
+        }
     }
-  }
 });
 
-var _withId = /*#__PURE__*/withScopeId("data-v-edeae2da");
+const _withId = /*#__PURE__*/withScopeId("data-v-6fac76ee");
 
-var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createBlock("div", null, [createVNode("div", {
-    "class": "red",
-    onClick: _cache[1] || (_cache[1] = function () {
-      return _ctx.jian && _ctx.jian.apply(_ctx, arguments);
-    })
-  }, "---"), createVNode("div", null, toDisplayString(_ctx.num) + " + " + toDisplayString(_ctx.name), 1
-  /* TEXT */
-  ), createVNode("div", {
-    "class": "red",
-    onClick: _cache[2] || (_cache[2] = function () {
-      return _ctx.add && _ctx.add.apply(_ctx, arguments);
-    })
-  }, "+++"), createCommentVNode("        <address-component></address-component>")]);
+pushScopeId("data-v-6fac76ee");
+const _hoisted_1 = { class: "c-red" };
+popScopeId();
+
+const render = /*#__PURE__*/_withId((_ctx, _cache, $props, $setup, $data, $options) => {
+  return (openBlock(), createBlock("div", null, [
+    createVNode("div", {
+      class: "red",
+      onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.jian && _ctx.jian(...args)))
+    }, "---"),
+    createVNode("div", _hoisted_1, toDisplayString(_ctx.num) + " + " + toDisplayString(_ctx.name), 1),
+    createVNode("div", {
+      class: "red",
+      onClick: _cache[2] || (_cache[2] = (...args) => (_ctx.add && _ctx.add(...args)))
+    }, "+++")
+  ]))
 });
 
 script.render = render;
-script.__scopeId = "data-v-edeae2da";
-script.__file = "src/components/Add/Add.vue";
+script.__scopeId = "data-v-6fac76ee";
 
-function SFCWithInstall(component) {
-  return Object.assign(component, {
-    install: function install(app) {
-      app.component(component.name, component);
+const _AddComponent = Object.assign(script, {
+    install(app) {
+        app.component(script.name, script);
     }
-  });
-}
+});
 
-var index = SFCWithInstall(script);
-/*export default {
-    install(app: App) {
-        app.component(AddComponent.name, AddComponent);
-    }
-}*/
-
-export default index;
+export default _AddComponent;
+//# sourceMappingURL=AddComponent.js.map

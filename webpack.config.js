@@ -2,8 +2,16 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/dist/plugin').default;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const tsImportPluginFactory = require('ts-import-plugin')
+const camel2Dash = require('camel-2-dash');
 
-
+function getStyle(stylePath) {
+    const basename = stylePath.replace('element-plus/lib/', '');
+    const result = path.join('element-plus', 'lib', 'theme-chalk', `${
+        camel2Dash(basename)}.css`);
+    console.log(`${stylePath} - `, result);
+    return result;
+}
 
 module.exports = {
     mode: 'development',
@@ -26,13 +34,24 @@ module.exports = {
                 test: /\.ts$/,
                 loader: "ts-loader",
                 exclude: /node_modules | lib/,
-                options: { appendTsSuffixTo: [/\.vue$/] }
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                    // transpileOnly: true,
+                    getCustomTransformers: () => ({
+                        before: [ tsImportPluginFactory({
+                            libraryName: 'element-plus',
+                            libraryDirectory: 'lib',
+                            camel2DashComponentName: true,
+                            style: getStyle
+                        }) ]
+                    }),
+                }
             },
-            {
+            /*{
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
-            },
+            },*/
             {
                 test: /\.css$/,
                 use: [

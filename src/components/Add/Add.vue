@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="red" @click="jian">---</div>
-        <div>{{num}} + {{name}}</div>
+        <div class="c-red">{{num}} + {{name}}</div>
         <div class="red" @click="add">+++</div>
 <!--        <address-component></address-component>-->
     </div>
@@ -37,5 +37,7 @@
 </script>
 
 <style scoped>
-
+    .c-red {
+        color: red;
+    }
 </style>
