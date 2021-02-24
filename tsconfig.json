@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
+        "target": "es2018",
+        "module": "commonjs",
         // 这样就可以对 `this` 上的数据属性进行更严格的推断`
         "strict": true,
         "esModuleInterop": true,
@@ -15,9 +15,6 @@
         "sourceMap": true, // 是否生成map文件
         "noImplicitAny": false, // 是否默认禁用 any
         "removeComments": true, // 是否移除注释
-        "types": [ //指定引入的类型声明文件，默认是自动引入所有声明文件，一旦指定该选项，则会禁用自动引入，改为只引入指定的类型声明文件，如果指定空数组[]则不引用任何文件
-            "node" // 引入 node 的类型声明
-        ],
         "paths": { // 指定模块的路径，和baseUrl有关联，和webpack中resolve.alias配置一样
             "src": [ //指定后可以在文件之直接 import * from 'src';
                 "./src"
